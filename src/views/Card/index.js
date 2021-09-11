@@ -1,44 +1,15 @@
 import React from "react";
 import References from "./References";
 import Definition from "./Definition";
+import entries from "../../assets/example-entries.json";
 import "./entrynav.css";
+
 
 class Card extends React.Component {
     constructor(props)
     {
         super(props);
-        this.state = {
-            entries: [{
-                word: "main",
-                language: "en",
-                terms: [{
-                    pos: "Adjective",
-                    description: [{
-                        language: "en",
-                        description: "Of chief or leading importance; prime, principal"
-                    },{
-                        language: "zh-Hant",
-                        description: "主要"
-                    }]
-                },{
-                    pos: "Adjective",
-                    description: [{
-                        language: "en",
-                        description: "Chief, most important, or principal in extent, size, or strength; consisting of the largest part"
-                    },{
-                        language: "zh-Hant",
-                        description: "主要"
-                    }]
-                }],
-                references: [{
-                    href: "https://dictionary.cambridge.org/search/english/direct/?q=main",
-                    text: "Cambridge Dictionary"
-                },{
-                    href: "https://en.wiktionary.org/w/index.php?title=Special:Search&search=main",
-                    text: "Wiktionary"
-                }],
-            }]
-        };
+        this.state = { entries };
     }
     render()
     {
