@@ -40,5 +40,23 @@
                 "text": "Wiktionary"
             }
         ]
+    },
+    {
+        "word": "愛",
+        "language": "zh-Hant",
+        "terms": [{
+            "pos": "Verb",
+            "description": [
+                {
+                    "language": "zh-Hant",
+                    "description": "對人或物的強烈感情。亦指具有此種感情。"
+                },
+                {
+                    "language": "en",
+                    "description": "to love"
+                }
+            ]
+        }],
+        "references": []
     }
 ]
