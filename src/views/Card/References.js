@@ -25,15 +25,19 @@ class References extends React.Component {
     constructor(props)
     {
         super(props);
-        this.references = props.references;
+    }
+    wiktionary()
+    {
+        const { word } = this.props;
+        return [{
+            "href": `https://en.wiktionary.org/w/index.php?title=Special:Search&search=${word}`,
+            "text": "Wiktionary"
+        }];
     }
     render()
     {
-        const { references } = this.props;
-        if( references.length < 1 )
-        {
-            return (<dev />);
-        }
+        const wiktionary = this.wiktionary();
+        const references = wiktionary.concat( this.props.references );
         return (
             <section className="references">
                 <h3>References</h3>
@@ -47,6 +51,7 @@ class References extends React.Component {
 
 References.propTypes = {
     references: PropTypes.array,
+    word: PropTypes.string
 };
 
 export default References;
