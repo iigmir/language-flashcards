@@ -6,7 +6,6 @@ class References extends React.Component {
     {
         super(props);
         this.references = props.references;
-        this.state = {};
     }
     render()
     {
