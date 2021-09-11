@@ -1,6 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+class Reference extends React.Component {
+    constructor(props)
+    {
+        super(props);
+        this.href = props.item.href;
+        this.text = props.item.text;
+    }
+    render()
+    {
+        return (
+            <li>
+                <a href={ this.href } target="_blank" rel="noreferrer">{ this.text }</a>
+            </li>
+        );
+    }
+}
+
+Reference.propTypes = {
+    item: PropTypes.object,
+};
+
 class References extends React.Component {
     constructor(props)
     {
@@ -10,15 +31,10 @@ class References extends React.Component {
     render()
     {
         const { references } = this.props;
-        const references_cb = ({ href, text }, key) => (
-            <li key={key}>
-                <a href={href} target="_blank" rel="noreferrer">{ text }</a>
-            </li>
-        );
         return (
             <section className="references">
                 <h3>References</h3>
-                <ol> { references.map( references_cb ) } </ol>
+                <ol>{ references.map((item, key)=>(<Reference key={key} item={item} />)) }</ol>
             </section>
         );
     }
