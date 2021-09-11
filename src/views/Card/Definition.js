@@ -1,6 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+class DefinitionItem extends React.Component {
+    constructor(props)
+    {
+        super(props);
+    }
+    render()
+    {
+        const { language, description } = this.props;
+        return (<dd lang={ language } key={ language }>{ description }</dd> );
+    }
+}
+DefinitionItem.propTypes = {
+    language: PropTypes.string,
+    description: PropTypes.string,
+};
+
 class Definition extends React.Component {
     constructor(props)
     {
@@ -16,7 +32,7 @@ class Definition extends React.Component {
             <section className="definition">
                 <dt className="pos">{ part_of_speech }</dt>
                 { descriptions.map( ({ language, description }) => (
-                    <dd lang={ language } key={ language }>{ description }</dd> )
+                    <DefinitionItem lang={ language } key={ language } description={ description } /> )
                 ) }
             </section>
         );
