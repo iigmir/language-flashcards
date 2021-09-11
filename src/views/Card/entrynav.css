@@ -1,0 +1,9 @@
+.entry-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.entry-nav .entry {
+    cursor: pointer;
+    font-size: larger;
+}

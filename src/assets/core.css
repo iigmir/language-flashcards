@@ -1,0 +1,10 @@
+.container {
+    max-width: 960px;
+    line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top.container {
+    margin-top: 1rem;
+}
