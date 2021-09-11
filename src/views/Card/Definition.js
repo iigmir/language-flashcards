@@ -35,12 +35,12 @@ class Definition extends React.Component {
         const part_of_speech = this.part_of_speech();
         const descriptions = this.descriptions();
         return (
-            <section className="definition">
+            <div className="definition">
                 <dt className="pos">{ part_of_speech }</dt>
                 { descriptions.map( ({ language, description }) => (
                     <DefinitionItem lang={ language } key={ language } description={ description } /> )
                 ) }
-            </section>
+            </div>
         );
     }
 }
