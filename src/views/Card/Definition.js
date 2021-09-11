@@ -38,7 +38,7 @@ class Definition extends React.Component {
             <div className="definition">
                 <dt className="pos">{ part_of_speech }</dt>
                 { descriptions.map( ({ language, description }) => (
-                    <DefinitionItem lang={ language } key={ language } description={ description } /> )
+                    <DefinitionItem language={ language } key={ language } description={ description } /> )
                 ) }
             </div>
         );
