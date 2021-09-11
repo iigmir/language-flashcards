@@ -30,6 +30,10 @@ class References extends React.Component {
     render()
     {
         const { references } = this.props;
+        if( references.length < 1 )
+        {
+            return (<dev />);
+        }
         return (
             <section className="references">
                 <h3>References</h3>

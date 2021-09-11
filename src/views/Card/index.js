@@ -42,7 +42,7 @@ class Card extends React.Component {
                 <dl className="entry">
                     { terms.map( (item, index) => (<Definition item={ item } key={ index } />) ) }
                 </dl>
-                { references.length > 0 ? <References references={ references } /> : <div /> }
+                <References references={ references } />
             </main>
         );
     }
