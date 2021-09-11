@@ -39,9 +39,12 @@ class Card extends React.Component {
                     <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
                 </aside>
                 <h2 lang={ language }>{ word }</h2>
-                <dl className="entry">
-                    { terms.map( (item, index) => (<Definition item={ item } key={ index } />) ) }
-                </dl>
+                <section className="entry">
+                    <h3>Entries</h3>
+                    <dl>
+                        { terms.map( (item, index) => (<Definition item={ item } key={ index } />) ) }
+                    </dl>
+                </section>
                 <References references={ references } word={ word } />
             </main>
         );
