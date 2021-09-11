@@ -21,13 +21,19 @@ class Definition extends React.Component {
     constructor(props)
     {
         super(props);
-        const { pos, description } = props.item;
-        this.part_of_speech = pos;
-        this.descriptions = description;
+    }
+    part_of_speech()
+    {
+        return this.props.item.pos;
+    }
+    descriptions()
+    {
+        return this.props.item.description;
     }
     render()
     {
-        const { part_of_speech, descriptions } = this;
+        const part_of_speech = this.part_of_speech();
+        const descriptions = this.descriptions();
         return (
             <section className="definition">
                 <dt className="pos">{ part_of_speech }</dt>
