@@ -5,21 +5,20 @@ class Reference extends React.Component {
     constructor(props)
     {
         super(props);
-        this.href = props.item.href;
-        this.text = props.item.text;
     }
     render()
     {
         return (
             <li>
-                <a href={ this.href } target="_blank" rel="noreferrer">{ this.text }</a>
+                <a href={ this.props.href } target="_blank" rel="noreferrer">{ this.props.text }</a>
             </li>
         );
     }
 }
 
 Reference.propTypes = {
-    item: PropTypes.object,
+    href: PropTypes.string,
+    text: PropTypes.string,
 };
 
 class References extends React.Component {
@@ -34,7 +33,9 @@ class References extends React.Component {
         return (
             <section className="references">
                 <h3>References</h3>
-                <ol>{ references.map((item, key)=>(<Reference key={key} item={item} />)) }</ol>
+                <ol>{ references.map( ({ href, text }, key) =>
+                    (<Reference key={key} href={href} text={text} />)
+                ) }</ol>
             </section>
         );
     }
