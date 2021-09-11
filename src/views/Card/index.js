@@ -31,14 +31,14 @@ class Card extends React.Component {
         // https://blog.user.today/html5-semantic-tag-and-microdata-seo/
         // https://pjchender.blogspot.com/2020/05/relnoreferrer-targetblank.html
         // https://schema.org/DefinedTerm
-        const { word, references, terms } = this.current_entry();
+        const { word, references, terms, language } = this.current_entry();
         return (
             <main className="Card container">
                 <aside className="entry-nav">
                     <span className="prev entry" onClick={ () => this.change_index( this.state.index - 1 ) }>👈</span>
                     <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
                 </aside>
-                <h2 lang="en">{ word }</h2>
+                <h2 lang={ language }>{ word }</h2>
                 <dl className="entry">
                     { terms.map( (item, index) => (<Definition item={ item } key={ index } />) ) }
                 </dl>
