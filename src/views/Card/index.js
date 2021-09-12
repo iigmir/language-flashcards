@@ -1,7 +1,7 @@
 import React from "react";
 import References from "./References";
 import Definition from "./Definition";
-import entries from "../../assets/example-entries.json";
+import PropTypes from "prop-types";
 import "./entrynav.css";
 
 
@@ -9,20 +9,20 @@ class Card extends React.Component {
     constructor(props)
     {
         super(props);
-        this.state = { entries, index: 0 };
+        this.state = { index: 0 };
     }
     entries_length()
     {
-        return this.state.entries.length;
+        return this.props.entries.length;
     }
     current_entry()
     {
-        return this.state.entries[this.state.index];
+        return this.props.entries[this.state.index];
     }
     change_index(pos = 1)
     {
         const in_min_condition = pos > 0;
-        const in_max_condition = pos < this.state.entries.length;
+        const in_max_condition = pos < this.props.entries.length;
         const index = in_min_condition && in_max_condition ? pos : 0;
         this.setState({ index });
     }
@@ -50,5 +50,9 @@ class Card extends React.Component {
         );
     }
 }
+
+Card.propTypes = {
+    entries: PropTypes.object,
+};
 
 export default Card;
