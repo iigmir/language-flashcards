@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import Header from "./Header";
 import Modal from "./Modal";
-import entries from "../assets/example-entries.json";
+// import entries from "../assets/example-entries.json";
 
 class App extends React.Component {
     constructor(props)

@@ -17,6 +17,10 @@ class Card extends React.Component {
     }
     current_entry()
     {
+        if( this.entries_length() < 1 )
+        {
+            return { "word": "", "language": "", "terms": [], "references": [] };
+        }
         return this.props.entries[this.state.index];
     }
     change_index(pos = 1)
@@ -28,13 +32,13 @@ class Card extends React.Component {
     }
     render()
     {
+        const { word, references, terms, language } = this.current_entry();
         if( this.entries_length() < 1 )
         {
             return (<main className="Card container">
-                <p>No entries - How about add a one? 😉</p>
+                <p>No entries - How about adding an new one? 😉</p>
             </main>);
         }
-        const { word, references, terms, language } = this.current_entry();
         return (
             <main className="Card container">
                 <aside className="entry-nav">
