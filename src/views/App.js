@@ -8,7 +8,7 @@ class App extends React.Component {
     constructor(props)
     {
         super(props);
-        this.state = { entries, hide_modal: true, };
+        this.state = { entries: [], hide_modal: true, };
     }
     toggle_modal_flag()
     {

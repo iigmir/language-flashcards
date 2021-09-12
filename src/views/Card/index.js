@@ -28,9 +28,12 @@ class Card extends React.Component {
     }
     render()
     {
-        // https://blog.user.today/html5-semantic-tag-and-microdata-seo/
-        // https://pjchender.blogspot.com/2020/05/relnoreferrer-targetblank.html
-        // https://schema.org/DefinedTerm
+        if( this.entries_length() < 1 )
+        {
+            return (<main className="Card container">
+                <p>No entries - How about add a one? 😉</p>
+            </main>);
+        }
         const { word, references, terms, language } = this.current_entry();
         return (
             <main className="Card container">
