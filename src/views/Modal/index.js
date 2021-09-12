@@ -5,7 +5,7 @@ class Card extends React.Component {
     constructor(props)
     {
         super(props);
-        this.state = {};
+        this.state = { hide: true, };
     }
     render()
     {
@@ -13,8 +13,12 @@ class Card extends React.Component {
         // kube-fadeIn
         // kube-fadeOut
         // modal is-open
+        if( this.state.hide )
+        {
+            return (<div />);
+        }
         return (
-            <div id="create-modal" className="Modal">
+            <div id="create-modal" className="modal-container">
                 <div className="overlay">
                     <div className="modal is-open">
                         <span className="close"></span>

@@ -1,3 +1,7 @@
 #create-modal .overlay {
     background-color: rgba(17,17,19,.18);
 }
+
+#create-modal .modal {
+    max-width: 1024px;
+}
