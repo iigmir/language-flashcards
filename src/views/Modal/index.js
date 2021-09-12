@@ -1,7 +1,7 @@
 import React from "react";
 import "./modal.css";
 
-class Card extends React.Component {
+class Modal extends React.Component {
     constructor(props)
     {
         super(props);
@@ -34,4 +34,4 @@ class Card extends React.Component {
     }
 }
 
-export default Card;
+export default Modal;

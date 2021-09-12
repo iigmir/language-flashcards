@@ -52,7 +52,7 @@ class Card extends React.Component {
 }
 
 Card.propTypes = {
-    entries: PropTypes.object,
+    entries: PropTypes.array,
 };
 
 export default Card;
