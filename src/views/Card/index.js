@@ -1,9 +1,9 @@
 import React from "react";
-import References from "./References";
+import Word from "./Word";
 import Definition from "./Definition";
+import References from "./References";
 import PropTypes from "prop-types";
 import "./entrynav.css";
-
 
 class Card extends React.Component {
     constructor(props)
@@ -38,7 +38,7 @@ class Card extends React.Component {
                     <span className="prev entry" onClick={ () => this.change_index( this.state.index - 1 ) }>👈</span>
                     <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
                 </aside>
-                <h2 lang={ language }>{ word }</h2>
+                <Word language={ language } word={ word } />
                 <section className="entry">
                     <h3>Entries</h3>
                     <dl>
