@@ -1,4 +1,5 @@
 import React from "react";
+import "./modal.css";
 
 class Card extends React.Component {
     constructor(props)
@@ -13,14 +14,16 @@ class Card extends React.Component {
         // kube-fadeOut
         // modal is-open
         return (
-            <div id="create-modal" className="hidden">
-                <div className="modal is-open">
-                    <span className="close"></span>
-                    <div className="modal-header">My Modal</div>
-                    <div className="modal-body">
-                        <p>Lorem ipsum dolor sit amet...</p>
+            <div id="create-modal" className="Modal">
+                <div className="overlay">
+                    <div className="modal is-open">
+                        <span className="close"></span>
+                        <div className="modal-header">My Modal</div>
+                        <div className="modal-body">
+                            <p>Lorem ipsum dolor sit amet...</p>
+                        </div>
+                        <div className="modal-footer"></div>
                     </div>
-                    <div className="modal-footer"></div>
                 </div>
             </div>
         );
