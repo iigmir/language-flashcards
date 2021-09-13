@@ -45,15 +45,15 @@ class Modal extends React.Component {
                                 </div>
                                 <div className="terms is-row">
                                     <input type="hidden" name="terms" />
-                                    <div className="form-item is-col">
+                                    <div className="form-item is-col is-40">
                                         <label>Terms: Language</label>
                                         <input type="text" name="reference-language" />
                                     </div>
-                                    <div className="form-item is-col">
+                                    <div className="form-item is-col is-40">
                                         <label>Terms: Description</label>
                                         <input type="text" name="reference-description" />
                                     </div>
-                                    <div className="form-item is-col">
+                                    <div className="form-item is-col is-20">
                                         <label>&nbsp;</label>
                                         <button className="button">Add</button>
                                     </div>
@@ -61,15 +61,15 @@ class Modal extends React.Component {
                                 <div className="references is-row">
                                     {/* references */}
                                     <input type="hidden" name="references" />
-                                    <div className="form-item is-col">
+                                    <div className="form-item is-col is-40">
                                         <label>Reference: URL</label>
                                         <input type="text" name="reference-href" />
                                     </div>
-                                    <div className="form-item is-col">
+                                    <div className="form-item is-col is-40">
                                         <label>References: Text</label>
                                         <input type="text" name="reference-text" />
                                     </div>
-                                    <div className="form-item is-col">
+                                    <div className="form-item is-col is-20">
                                         <label>&nbsp;</label>
                                         <button className="button">Add</button>
                                     </div>
