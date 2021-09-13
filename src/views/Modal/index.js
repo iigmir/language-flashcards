@@ -34,7 +34,51 @@ class Modal extends React.Component {
                         <span className="close" data-close-modal="true"></span>
                         <div className="modal-header">My Modal</div>
                         <div className="modal-body">
-                            <p>Lorem ipsum dolor sit amet...</p>
+                            <form>
+                                <div className="form-item">
+                                    <label>Word</label>
+                                    <input type="text" name="word" />
+                                </div>
+                                <div className="form-item">
+                                    <label>Language</label>
+                                    <input type="text" name="language" />
+                                </div>
+                                <div className="terms is-row">
+                                    <input type="hidden" name="terms" />
+                                    <div className="form-item is-col">
+                                        <label>Terms: Language</label>
+                                        <input type="text" name="reference-language" />
+                                    </div>
+                                    <div className="form-item is-col">
+                                        <label>Terms: Description</label>
+                                        <input type="text" name="reference-description" />
+                                    </div>
+                                    <div className="form-item is-col">
+                                        <label>&nbsp;</label>
+                                        <button className="button">Add</button>
+                                    </div>
+                                </div>
+                                <div className="references is-row">
+                                    {/* references */}
+                                    <input type="hidden" name="references" />
+                                    <div className="form-item is-col">
+                                        <label>Reference: URL</label>
+                                        <input type="text" name="reference-href" />
+                                    </div>
+                                    <div className="form-item is-col">
+                                        <label>References: Text</label>
+                                        <input type="text" name="reference-text" />
+                                    </div>
+                                    <div className="form-item is-col">
+                                        <label>&nbsp;</label>
+                                        <button className="button">Add</button>
+                                    </div>
+                                </div>
+                                <div className="form-item is-buttons">
+                                    <button className="button">Add entry</button>
+                                </div>
+                                {/* { "word": "", "language": "", "terms": [], "references": [] } */}
+                            </form>
                         </div>
                         <div className="modal-footer"></div>
                     </div>
