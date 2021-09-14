@@ -8,12 +8,14 @@ class Modal extends React.Component {
         super(props);
         this.state = {
             hide: true,
-            param: {
-                "word": "",
-                "language": "",
-                "terms": [],
-                "references": []
-            },
+            word: "",
+            language: "",
+            terms: [],
+            references: [],
+            "reference-description": "",
+            "reference-language": "",
+            "reference-href": "",
+            "reference-text": "",
         };
     }
     shall_we_close(e)
@@ -24,6 +26,13 @@ class Modal extends React.Component {
         {
             this.props.toggle();
         }
+    }
+    change_state(event)
+    {
+        const target = event.target;
+        const value = target.type === "checkbox" ? target.checked : target.value;
+        const name = target.name;
+        this.setState({ [name]: value });
     }
     add_entry(event)
     {
@@ -53,22 +62,22 @@ class Modal extends React.Component {
                                 <div className="is-row">
                                     <div className="form-item is-col is-80">
                                         <label htmlFor="word">Word</label>
-                                        <input id="word" type="text" name="word" value={ this.state.word } onChange={ e => this.setState({ word: e.target.value }) } />
+                                        <input id="word" type="text" name="word" value={ this.state.word } onChange={ e => this.change_state(e) } />
                                     </div>
                                     <div className="form-item is-col is-20">
                                         <label htmlFor="language">Language</label>
-                                        <input id="language" type="text" name="language" value={ this.state.language } onChange={ e => this.setState({ language: e.target.value }) } />
+                                        <input id="language" type="text" name="language" value={ this.state.language } onChange={ e => this.change_state(e) } />
                                     </div>
                                 </div>
                                 <div className="terms is-row">
                                     <input id="terms" type="hidden" name="terms" value={ this.state.terms } />
                                     <div className="form-item is-col is-40">
-                                        <label htmlFor="reference-language">Terms: Language</label>
-                                        <input id="reference-language" type="text" name="reference-language" />
+                                        <label htmlFor="reference-description">Terms: Description</label>
+                                        <input id="reference-description" type="text" name="reference-description" value={ this.state["reference-description"] } onChange={ e => this.change_state(e) } />
                                     </div>
                                     <div className="form-item is-col is-40">
-                                        <label htmlFor="reference-description">Terms: Description</label>
-                                        <input id="reference-description" type="text" name="reference-description" />
+                                        <label htmlFor="reference-language">Terms: Language</label>
+                                        <input id="reference-language" type="text" name="reference-language" value={ this.state["reference-language"] } onChange={ e => this.change_state(e) } />
                                     </div>
                                     <div className="form-item is-col is-20">
                                         <label>&nbsp;</label>
@@ -80,11 +89,11 @@ class Modal extends React.Component {
                                     <input id="references" type="hidden" name="references" value={ this.state.references } />
                                     <div className="form-item is-col is-40">
                                         <label htmlFor="reference-href">Reference: URL</label>
-                                        <input id="reference-href" type="text" name="reference-href" />
+                                        <input id="reference-href" type="text" name="reference-href" value={ this.state["reference-href"] } onChange={ e => this.change_state(e) } />
                                     </div>
                                     <div className="form-item is-col is-40">
                                         <label htmlFor="reference-text">References: Text</label>
-                                        <input id="reference-text" type="text" name="reference-text" />
+                                        <input id="reference-text" type="text" name="reference-text" value={ this.state["reference-text"] } onChange={ e => this.change_state(e) } />
                                     </div>
                                     <div className="form-item is-col is-20">
                                         <label>&nbsp;</label>
