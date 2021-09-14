@@ -42,13 +42,15 @@ class Modal extends React.Component {
                         <div className="modal-header">My Modal</div>
                         <div className="modal-body">
                             <form onSubmit={ e => this.add_entry(e) }>
-                                <div className="form-item">
-                                    <label htmlFor="word">Word</label>
-                                    <input id="word" type="text" name="word" />
-                                </div>
-                                <div className="form-item">
-                                    <label htmlFor="language">Language</label>
-                                    <input id="language" type="text" name="language" />
+                                <div className="is-row">
+                                    <div className="form-item is-col is-80">
+                                        <label htmlFor="word">Word</label>
+                                        <input id="word" type="text" name="word" />
+                                    </div>
+                                    <div className="form-item is-col is-20">
+                                        <label htmlFor="language">Language</label>
+                                        <input id="language" type="text" name="language" />
+                                    </div>
                                 </div>
                                 <div className="terms is-row">
                                     <input id="terms" type="hidden" name="terms" />
@@ -66,7 +68,6 @@ class Modal extends React.Component {
                                     </div>
                                 </div>
                                 <div className="references is-row">
-                                    {/* references */}
                                     <input id="references" type="hidden" name="references" />
                                     <div className="form-item is-col is-40">
                                         <label htmlFor="reference-href">Reference: URL</label>
