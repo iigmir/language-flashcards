@@ -39,10 +39,18 @@ class Modal extends React.Component {
     {
         // eslint-disable-next-line no-undef
         const values = new Map([
-            ["terms", { language: "", description: "", pos: "" }],
-            ["references", { href: "", text: "" }],
+            ["terms", {
+                language: this.state["term-description"],
+                description: this.state["term-language"],
+                pos: this.state.pos,
+            }],
+            ["references", {
+                href: this.state["reference-href"],
+                text: this.state["reference-text"],
+            }],
         ]);
-        console.log(state, values);
+        const item = values.get(state);
+        console.log(item);
     }
     add_entry(event)
     {
@@ -94,7 +102,7 @@ class Modal extends React.Component {
                                     </div>
                                     <div className="form-item is-col is-10">
                                         <label>&nbsp;</label>
-                                        <button className="button is-secondary" onClick={ e => this.push_array("terms", e) }>Add</button>
+                                        <button className="button is-secondary" onClick={ e => this.push_array("terms", e) } type="button">Add</button>
                                     </div>
                                 </div>
                                 <div className="is-row"></div>
@@ -110,7 +118,7 @@ class Modal extends React.Component {
                                     </div>
                                     <div className="form-item is-col is-10">
                                         <label>&nbsp;</label>
-                                        <button className="button is-secondary" onClick={ e => this.push_array("references", e) }>Add</button>
+                                        <button className="button is-secondary" onClick={ e => this.push_array("references", e) } type="button">Add</button>
                                     </div>
                                 </div>
                                 <div className="is-row"></div>
