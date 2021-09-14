@@ -36,7 +36,10 @@ class Modal extends React.Component {
     }
     push_array(state)
     {
-        console.log(state);
+        const values = new Map([
+            //
+        ]);
+        console.log(state, values);
     }
     add_entry(event)
     {

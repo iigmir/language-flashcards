@@ -4,6 +4,7 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./views/App";
 import "./assets/kube.min.css";
 import "./assets/core.css";
+import "core-js/es/map";
 
 ReactDOM.render(
     <React.StrictMode>
