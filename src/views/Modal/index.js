@@ -36,48 +36,48 @@ class Modal extends React.Component {
                         <div className="modal-body">
                             <form>
                                 <div className="form-item">
-                                    <label>Word</label>
-                                    <input type="text" name="word" />
+                                    <label htmlFor="word">Word</label>
+                                    <input id="word" type="text" name="word" />
                                 </div>
                                 <div className="form-item">
-                                    <label>Language</label>
-                                    <input type="text" name="language" />
+                                    <label htmlFor="language">Language</label>
+                                    <input id="language" type="text" name="language" />
                                 </div>
                                 <div className="terms is-row">
                                     <input type="hidden" name="terms" />
                                     <div className="form-item is-col is-40">
-                                        <label>Terms: Language</label>
-                                        <input type="text" name="reference-language" />
+                                        <label htmlFor="reference-language">Terms: Language</label>
+                                        <input id="reference-language" type="text" name="reference-language" />
                                     </div>
                                     <div className="form-item is-col is-40">
-                                        <label>Terms: Description</label>
-                                        <input type="text" name="reference-description" />
+                                        <label htmlFor="reference-description">Terms: Description</label>
+                                        <input id="reference-description" type="text" name="reference-description" />
                                     </div>
                                     <div className="form-item is-col is-20">
                                         <label>&nbsp;</label>
-                                        <button className="button">Add</button>
+                                        <button className="button is-secondary">Add</button>
                                     </div>
                                 </div>
                                 <div className="references is-row">
                                     {/* references */}
                                     <input type="hidden" name="references" />
                                     <div className="form-item is-col is-40">
-                                        <label>Reference: URL</label>
-                                        <input type="text" name="reference-href" />
+                                        <label htmlFor="reference-href">Reference: URL</label>
+                                        <input id="reference-href" type="text" name="reference-href" />
                                     </div>
                                     <div className="form-item is-col is-40">
-                                        <label>References: Text</label>
-                                        <input type="text" name="reference-text" />
+                                        <label htmlFor="reference-text">References: Text</label>
+                                        <input id="reference-text" type="text" name="reference-text" />
                                     </div>
                                     <div className="form-item is-col is-20">
                                         <label>&nbsp;</label>
-                                        <button className="button">Add</button>
+                                        <button className="button is-secondary">Add</button>
                                     </div>
                                 </div>
                                 <div className="form-item is-buttons">
-                                    <button className="button">Add entry</button>
+                                    <button type="submit" className="button">Add entry</button>
+                                    {/* <input type="submit" value="Add entry" className="button" /> */}
                                 </div>
-                                {/* { "word": "", "language": "", "terms": [], "references": [] } */}
                             </form>
                         </div>
                         <div className="modal-footer"></div>
