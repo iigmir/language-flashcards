@@ -17,12 +17,19 @@ class Modal extends React.Component {
             this.props.toggle();
         }
     }
+    add_entry(event)
+    {
+        // { "word": "", "language": "", "terms": [], "references": [] }
+        const data_keys = ["word", "language", "terms", "references"];
+        const params = Object.fromEntries(
+            data_keys.map( key => [key, event.target.elements[key].value] )
+        );
+        event.preventDefault();
+        // const form_data = new FormData(event.target);
+        console.log(params);
+    }
     render()
     {
-        // modal-box
-        // kube-fadeIn
-        // kube-fadeOut
-        // modal is-open
         if( this.props.hidden )
         {
             return (<div />);
@@ -34,7 +41,7 @@ class Modal extends React.Component {
                         <span className="close" data-close-modal="true"></span>
                         <div className="modal-header">My Modal</div>
                         <div className="modal-body">
-                            <form>
+                            <form onSubmit={ e => this.add_entry(e) }>
                                 <div className="form-item">
                                     <label htmlFor="word">Word</label>
                                     <input id="word" type="text" name="word" />
@@ -44,7 +51,7 @@ class Modal extends React.Component {
                                     <input id="language" type="text" name="language" />
                                 </div>
                                 <div className="terms is-row">
-                                    <input type="hidden" name="terms" />
+                                    <input id="terms" type="hidden" name="terms" />
                                     <div className="form-item is-col is-40">
                                         <label htmlFor="reference-language">Terms: Language</label>
                                         <input id="reference-language" type="text" name="reference-language" />
@@ -60,7 +67,7 @@ class Modal extends React.Component {
                                 </div>
                                 <div className="references is-row">
                                     {/* references */}
-                                    <input type="hidden" name="references" />
+                                    <input id="references" type="hidden" name="references" />
                                     <div className="form-item is-col is-40">
                                         <label htmlFor="reference-href">Reference: URL</label>
                                         <input id="reference-href" type="text" name="reference-href" />
