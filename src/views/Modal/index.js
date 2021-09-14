@@ -74,6 +74,14 @@ class Modal extends React.Component {
         {
             return (<div />);
         }
+        const list_comp = (list) => list.length > 0 ? (
+            <div className="is-row">
+                <div className="is-col">
+                    <ul>{ list.map( (item, id) => (<li key={id}>{ JSON.stringify(item) }</li>) ) }</ul>
+                </div>
+            </div>) : (<div className="is-row"></div>);
+        const terms_list = list_comp(this.state.terms);
+        const refs_list = list_comp(this.state.references);
         return (
             <div id="create-modal" className="modal-container">
                 <div className="overlay" onClick={ (dom) => this.shall_we_close(dom) }>
@@ -111,7 +119,7 @@ class Modal extends React.Component {
                                         <button className="button is-secondary" onClick={ e => this.push_array("terms", e) } type="button">Add</button>
                                     </div>
                                 </div>
-                                <div className="is-row"></div>
+                                { terms_list }
                                 <div className="references is-row">
                                     <input id="references" type="hidden" name="references" value={ this.state.references } />
                                     <div className="form-item is-col is-50">
@@ -127,7 +135,7 @@ class Modal extends React.Component {
                                         <button className="button is-secondary" onClick={ e => this.push_array("references", e) } type="button">Add</button>
                                     </div>
                                 </div>
-                                <div className="is-row"></div>
+                                { refs_list }
                                 <div className="form-item is-buttons">
                                     <button type="submit" className="button">Add entry</button>
                                 </div>
