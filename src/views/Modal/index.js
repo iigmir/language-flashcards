@@ -12,8 +12,8 @@ class Modal extends React.Component {
             language: "",
             terms: [],
             references: [],
-            "reference-description": "",
-            "reference-language": "",
+            "term-description": "",
+            "term-language": "",
             "reference-href": "",
             "reference-text": "",
         };
@@ -34,9 +34,12 @@ class Modal extends React.Component {
         const name = target.name;
         this.setState({ [name]: value });
     }
+    push_array(state)
+    {
+        console.log(state);
+    }
     add_entry(event)
     {
-        // { "word": "", "language": "", "terms": [], "references": [] }
         const data_keys = ["word", "language", "terms", "references"];
         const params = Object.fromEntries(
             data_keys.map( key => [key, event.target.elements[key].value] )
@@ -72,16 +75,16 @@ class Modal extends React.Component {
                                 <div className="terms is-row">
                                     <input id="terms" type="hidden" name="terms" value={ this.state.terms } />
                                     <div className="form-item is-col is-40">
-                                        <label htmlFor="reference-description">Terms: Description</label>
-                                        <input id="reference-description" type="text" name="reference-description" value={ this.state["reference-description"] } onChange={ e => this.change_state(e) } />
+                                        <label htmlFor="term-description">Terms: Description</label>
+                                        <input id="term-description" type="text" name="term-description" value={ this.state["term-description"] } onChange={ e => this.change_state(e) } />
                                     </div>
                                     <div className="form-item is-col is-40">
-                                        <label htmlFor="reference-language">Terms: Language</label>
-                                        <input id="reference-language" type="text" name="reference-language" value={ this.state["reference-language"] } onChange={ e => this.change_state(e) } />
+                                        <label htmlFor="term-language">Terms: Language</label>
+                                        <input id="term-language" type="text" name="term-language" value={ this.state["term-language"] } onChange={ e => this.change_state(e) } />
                                     </div>
                                     <div className="form-item is-col is-20">
                                         <label>&nbsp;</label>
-                                        <button className="button is-secondary">Add</button>
+                                        <button className="button is-secondary" onClick={ e => this.push_array("terms", e) }>Add</button>
                                     </div>
                                 </div>
                                 <div className="is-row"></div>
@@ -97,13 +100,12 @@ class Modal extends React.Component {
                                     </div>
                                     <div className="form-item is-col is-20">
                                         <label>&nbsp;</label>
-                                        <button className="button is-secondary">Add</button>
+                                        <button className="button is-secondary" onClick={ e => this.push_array("references", e) }>Add</button>
                                     </div>
                                 </div>
                                 <div className="is-row"></div>
                                 <div className="form-item is-buttons">
                                     <button type="submit" className="button">Add entry</button>
-                                    {/* <input type="submit" value="Add entry" className="button" /> */}
                                 </div>
                             </form>
                         </div>
