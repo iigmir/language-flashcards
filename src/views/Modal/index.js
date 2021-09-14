@@ -35,10 +35,10 @@ class Modal extends React.Component {
         const name = target.name;
         this.setState({ [name]: value });
     }
-    push_array(state)
+    push_array(key)
     {
         // eslint-disable-next-line no-undef
-        const values = new Map([
+        const items = new Map([
             ["terms", {
                 language: this.state["term-description"],
                 description: this.state["term-language"],
@@ -49,8 +49,14 @@ class Modal extends React.Component {
                 text: this.state["reference-text"],
             }],
         ]);
-        const item = values.get(state);
-        console.log(item);
+        // eslint-disable-next-line no-undef
+        const clear_state = new Map([
+            ["terms", { ["term-description"]: "", ["term-language"]: "", pos: "", }],
+            ["references", { ["reference-href"]: "", ["reference-text"]: "" }],
+        ]);
+        const item = items.get(key);
+        this.state[key].push(item);
+        this.setState({ ...clear_state.get(key) });
     }
     add_entry(event)
     {
