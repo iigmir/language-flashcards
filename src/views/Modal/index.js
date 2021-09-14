@@ -10,6 +10,7 @@ class Modal extends React.Component {
             hide: true,
             word: "",
             language: "",
+            pos: "",
             terms: [],
             references: [],
             "term-description": "",
@@ -36,8 +37,10 @@ class Modal extends React.Component {
     }
     push_array(state)
     {
+        // eslint-disable-next-line no-undef
         const values = new Map([
-            //
+            ["terms", { language: "", description: "", pos: "" }],
+            ["references", { href: "", text: "" }],
         ]);
         console.log(state, values);
     }
@@ -77,15 +80,19 @@ class Modal extends React.Component {
                                 </div>
                                 <div className="terms is-row">
                                     <input id="terms" type="hidden" name="terms" value={ this.state.terms } />
-                                    <div className="form-item is-col is-40">
+                                    <div className="form-item is-col is-50">
                                         <label htmlFor="term-description">Terms: Description</label>
                                         <input id="term-description" type="text" name="term-description" value={ this.state["term-description"] } onChange={ e => this.change_state(e) } />
                                     </div>
-                                    <div className="form-item is-col is-40">
+                                    <div className="form-item is-col is-20">
                                         <label htmlFor="term-language">Terms: Language</label>
                                         <input id="term-language" type="text" name="term-language" value={ this.state["term-language"] } onChange={ e => this.change_state(e) } />
                                     </div>
                                     <div className="form-item is-col is-20">
+                                        <label htmlFor="pos">Part of speech</label>
+                                        <input id="pos" type="text" name="pos" value={ this.state.pos } onChange={ e => this.change_state(e) } />
+                                    </div>
+                                    <div className="form-item is-col is-10">
                                         <label>&nbsp;</label>
                                         <button className="button is-secondary" onClick={ e => this.push_array("terms", e) }>Add</button>
                                     </div>
@@ -93,7 +100,7 @@ class Modal extends React.Component {
                                 <div className="is-row"></div>
                                 <div className="references is-row">
                                     <input id="references" type="hidden" name="references" value={ this.state.references } />
-                                    <div className="form-item is-col is-40">
+                                    <div className="form-item is-col is-50">
                                         <label htmlFor="reference-href">Reference: URL</label>
                                         <input id="reference-href" type="text" name="reference-href" value={ this.state["reference-href"] } onChange={ e => this.change_state(e) } />
                                     </div>
@@ -101,7 +108,7 @@ class Modal extends React.Component {
                                         <label htmlFor="reference-text">References: Text</label>
                                         <input id="reference-text" type="text" name="reference-text" value={ this.state["reference-text"] } onChange={ e => this.change_state(e) } />
                                     </div>
-                                    <div className="form-item is-col is-20">
+                                    <div className="form-item is-col is-10">
                                         <label>&nbsp;</label>
                                         <button className="button is-secondary" onClick={ e => this.push_array("references", e) }>Add</button>
                                     </div>
