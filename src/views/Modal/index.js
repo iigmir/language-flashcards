@@ -6,7 +6,15 @@ class Modal extends React.Component {
     constructor(props)
     {
         super(props);
-        this.state = { hide: true, };
+        this.state = {
+            hide: true,
+            param: {
+                "word": "",
+                "language": "",
+                "terms": [],
+                "references": []
+            },
+        };
     }
     shall_we_close(e)
     {
@@ -45,15 +53,15 @@ class Modal extends React.Component {
                                 <div className="is-row">
                                     <div className="form-item is-col is-80">
                                         <label htmlFor="word">Word</label>
-                                        <input id="word" type="text" name="word" />
+                                        <input id="word" type="text" name="word" value={ this.state.word } onChange={ e => this.setState({ word: e.target.value }) } />
                                     </div>
                                     <div className="form-item is-col is-20">
                                         <label htmlFor="language">Language</label>
-                                        <input id="language" type="text" name="language" />
+                                        <input id="language" type="text" name="language" value={ this.state.language } onChange={ e => this.setState({ language: e.target.value }) } />
                                     </div>
                                 </div>
                                 <div className="terms is-row">
-                                    <input id="terms" type="hidden" name="terms" />
+                                    <input id="terms" type="hidden" name="terms" value={ this.state.terms } />
                                     <div className="form-item is-col is-40">
                                         <label htmlFor="reference-language">Terms: Language</label>
                                         <input id="reference-language" type="text" name="reference-language" />
@@ -67,8 +75,9 @@ class Modal extends React.Component {
                                         <button className="button is-secondary">Add</button>
                                     </div>
                                 </div>
+                                <div className="is-row"></div>
                                 <div className="references is-row">
-                                    <input id="references" type="hidden" name="references" />
+                                    <input id="references" type="hidden" name="references" value={ this.state.references } />
                                     <div className="form-item is-col is-40">
                                         <label htmlFor="reference-href">Reference: URL</label>
                                         <input id="reference-href" type="text" name="reference-href" />
@@ -82,6 +91,7 @@ class Modal extends React.Component {
                                         <button className="button is-secondary">Add</button>
                                     </div>
                                 </div>
+                                <div className="is-row"></div>
                                 <div className="form-item is-buttons">
                                     <button type="submit" className="button">Add entry</button>
                                     {/* <input type="submit" value="Add entry" className="button" /> */}
