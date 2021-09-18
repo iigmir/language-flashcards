@@ -1,53 +1,206 @@
 [
-    "adfix",
-    "adjective",
-    "adnoun",
-    "adverb",
-    "article",
-    "auxiliary-verb",
-    "cardinal-number",
-    "collective-numeral",
-    "conjunction",
-    "coverb",
-    "demonstrative-determiner",
-    "demonstrative-pronoun",
-    "determinative",
-    "determiner",
-    "gerund",
-    "indefinite-pronoun",
-    "infinitive",
-    "interjection",
-    "interrogative-pronoun",
-    "intransitive-verb",
-    "multiplicative-number",
-    "multiplicative-numeral",
-    "noun",
-    "number",
-    "numeral",
-    "ordinal",
-    "ordinal-number",
-    "part-of-speech",
-    "participle",
-    "particle",
-    "personal-pronoun",
-    "phrasal-preposition",
-    "possessive-adjective",
-    "possessive-determiner",
-    "possessive-pronoun",
-    "postposition",
-    "predicative",
-    "preposition",
-    "preverb",
-    "pronoun",
-    "quasi-adjective",
-    "reciprocal-pronoun",
-    "reflexive-pronoun",
-    "relative-adjective",
-    "relative-pronoun",
-    "speech-disfluency",
-    "substantive",
-    "transitive",
-    "transitive-verb",
-    "verb",
-    "verbal-noun"
+    {
+      "value": "adfix",
+      "text": "Adfix"
+    },
+    {
+      "value": "adjective",
+      "text": "Adjective"
+    },
+    {
+      "value": "adnoun",
+      "text": "Adnoun"
+    },
+    {
+      "value": "adverb",
+      "text": "Adverb"
+    },
+    {
+      "value": "article",
+      "text": "Article"
+    },
+    {
+      "value": "auxiliary-verb",
+      "text": "Auxiliary verb"
+    },
+    {
+      "value": "cardinal-number",
+      "text": "Cardinal number"
+    },
+    {
+      "value": "collective-numeral",
+      "text": "Collective numeral"
+    },
+    {
+      "value": "conjunction",
+      "text": "Conjunction"
+    },
+    {
+      "value": "coverb",
+      "text": "Coverb"
+    },
+    {
+      "value": "demonstrative-determiner",
+      "text": "Demonstrative determiner"
+    },
+    {
+      "value": "demonstrative-pronoun",
+      "text": "Demonstrative pronoun"
+    },
+    {
+      "value": "determinative",
+      "text": "Determinative"
+    },
+    {
+      "value": "determiner",
+      "text": "Determiner"
+    },
+    {
+      "value": "gerund",
+      "text": "Gerund"
+    },
+    {
+      "value": "indefinite-pronoun",
+      "text": "Indefinite pronoun"
+    },
+    {
+      "value": "infinitive",
+      "text": "Infinitive"
+    },
+    {
+      "value": "interjection",
+      "text": "Interjection"
+    },
+    {
+      "value": "interrogative-pronoun",
+      "text": "Interrogative pronoun"
+    },
+    {
+      "value": "intransitive-verb",
+      "text": "Intransitive verb"
+    },
+    {
+      "value": "multiplicative-number",
+      "text": "Multiplicative number"
+    },
+    {
+      "value": "multiplicative-numeral",
+      "text": "Multiplicative numeral"
+    },
+    {
+      "value": "noun",
+      "text": "Noun"
+    },
+    {
+      "value": "number",
+      "text": "Number"
+    },
+    {
+      "value": "numeral",
+      "text": "Numeral"
+    },
+    {
+      "value": "ordinal",
+      "text": "Ordinal"
+    },
+    {
+      "value": "ordinal-number",
+      "text": "Ordinal number"
+    },
+    {
+      "value": "part-of speech",
+      "text": "Part of speech"
+    },
+    {
+      "value": "participle",
+      "text": "Participle"
+    },
+    {
+      "value": "particle",
+      "text": "Particle"
+    },
+    {
+      "value": "personal-pronoun",
+      "text": "Personal pronoun"
+    },
+    {
+      "value": "phrasal-preposition",
+      "text": "Phrasal preposition"
+    },
+    {
+      "value": "possessive-adjective",
+      "text": "Possessive adjective"
+    },
+    {
+      "value": "possessive-determiner",
+      "text": "Possessive determiner"
+    },
+    {
+      "value": "possessive-pronoun",
+      "text": "Possessive pronoun"
+    },
+    {
+      "value": "postposition",
+      "text": "Postposition"
+    },
+    {
+      "value": "predicative",
+      "text": "Predicative"
+    },
+    {
+      "value": "preposition",
+      "text": "Preposition"
+    },
+    {
+      "value": "preverb",
+      "text": "Preverb"
+    },
+    {
+      "value": "pronoun",
+      "text": "Pronoun"
+    },
+    {
+      "value": "quasi-adjective",
+      "text": "Quasi-adjective"
+    },
+    {
+      "value": "reciprocal-pronoun",
+      "text": "Reciprocal pronoun"
+    },
+    {
+      "value": "reflexive-pronoun",
+      "text": "Reflexive pronoun"
+    },
+    {
+      "value": "relative-adjective",
+      "text": "Relative adjective"
+    },
+    {
+      "value": "relative-pronoun",
+      "text": "Relative pronoun"
+    },
+    {
+      "value": "speech-disfluency",
+      "text": "Speech disfluency"
+    },
+    {
+      "value": "substantive",
+      "text": "Substantive"
+    },
+    {
+      "value": "transitive",
+      "text": "Transitive"
+    },
+    {
+      "value": "transitive-verb",
+      "text": "Transitive verb"
+    },
+    {
+      "value": "verb",
+      "text": "Verb"
+    },
+    {
+      "value": "verbal-noun",
+      "text": "Verbal noun"
+    }
 ]
