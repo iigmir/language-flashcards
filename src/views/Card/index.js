@@ -39,12 +39,13 @@ class Card extends React.Component {
                 <p className="gap">No entries - How about adding an new one? 😉</p>
             </main>);
         }
+        const navigation = this.entries_length() > 1 ? (<aside className="entry-nav">
+            <span className="prev entry" onClick={ () => this.change_index( this.state.index - 1 ) }>👈</span>
+            <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
+        </aside>) : (<aside className="entry-nav"></aside>);
         return (
             <main className="Card container">
-                <aside className="entry-nav">
-                    <span className="prev entry" onClick={ () => this.change_index( this.state.index - 1 ) }>👈</span>
-                    <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
-                </aside>
+                { navigation }
                 <Word language={ language } word={ word } />
                 <Entries terms={ terms } />
                 <References references={ references } word={ word } />
