@@ -36,7 +36,7 @@ class Card extends React.Component {
         if( this.entries_length() < 1 )
         {
             return (<main className="Card container">
-                <p>No entries - How about adding an new one? 😉</p>
+                <p className="gap">No entries - How about adding an new one? 😉</p>
             </main>);
         }
         return (
