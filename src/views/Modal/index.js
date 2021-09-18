@@ -140,7 +140,12 @@ class Modal extends React.Component {
                 </div>
                 <div className="form-item is-col is-10">
                     <label>&nbsp;</label>
-                    <button className="button is-secondary" onClick={ e => this.push_array("terms", e) } type="button">Add</button>
+                    <button
+                        className="button is-secondary"
+                        type="button"
+                        onClick={ e => this.push_array("terms", e) }
+                        disabled={ this.state["term-description"].trim() .length < 1 }
+                    >Add</button>
                 </div>
             </div>
             { list_comp(this.state.terms, "terms") }
@@ -156,7 +161,12 @@ class Modal extends React.Component {
                 </div>
                 <div className="form-item is-col is-10">
                     <label>&nbsp;</label>
-                    <button className="button is-secondary" onClick={ e => this.push_array("references", e) } type="button">Add</button>
+                    <button
+                        className="button is-secondary"
+                        type="button"
+                        onClick={ e => this.push_array("references", e) }
+                        disabled={ this.state["reference-text"].trim().length < 1 || this.state["reference-href"].trim().length < 1 }
+                    >Add</button>
                 </div>
             </div>
             { list_comp(this.state.references, "references") }
