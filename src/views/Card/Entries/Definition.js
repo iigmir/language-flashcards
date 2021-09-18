@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { PosToLanguage } from "../../utils";
 
 class DefinitionItem extends React.Component {
     constructor(props)
@@ -24,7 +25,7 @@ class Definition extends React.Component {
     }
     part_of_speech()
     {
-        return this.props.item.pos;
+        return PosToLanguage(this.props.item.pos);
     }
     descriptions()
     {
