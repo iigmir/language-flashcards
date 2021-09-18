@@ -167,7 +167,7 @@ class Modal extends React.Component {
         </form>);
         const content = (<div className="modal is-open">
             <span className="close" data-close-modal="true"></span>
-            <div className="modal-header">My Modal</div>
+            <div className="modal-header">Add an entry</div>
             <div className="modal-body">{ form }</div>
             <div className="modal-footer"></div>
         </div>);
