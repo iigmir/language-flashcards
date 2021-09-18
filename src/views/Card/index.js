@@ -1,6 +1,6 @@
 import React from "react";
 import Word from "./Word";
-import Definition from "./Definition";
+import Entries from "./Entries/index";
 import References from "./References";
 import PropTypes from "prop-types";
 import "./entrynav.css";
@@ -46,12 +46,7 @@ class Card extends React.Component {
                     <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
                 </aside>
                 <Word language={ language } word={ word } />
-                <section className="entry">
-                    <h3>Entries</h3>
-                    <dl>
-                        { terms.map( (item, index) => (<Definition item={ item } key={ index } />) ) }
-                    </dl>
-                </section>
+                <Entries terms={ terms } />
                 <References references={ references } word={ word } />
             </main>
         );
