@@ -66,7 +66,7 @@ class Modal extends React.Component {
         );
         event.preventDefault();
         // const form_data = new FormData(event.target);
-        console.log(params);
+        this.props.add(params);
     }
     delete_item(event, state_name, id)
     {
@@ -140,7 +140,7 @@ class Modal extends React.Component {
                 </div>
                 { list_comp(this.state.references, "references") }
                 <div className="form-item is-buttons">
-                    <button type="submit" className="button">Add entry</button>
+                    <button type="submit" className="button" disabled={ this.state.terms.length < 1 }>Add entry</button>
                 </div>
             </form>
         );
@@ -165,7 +165,8 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
     hidden: PropTypes.bool,
-    toggle: PropTypes.func
+    toggle: PropTypes.func,
+    add: PropTypes.func,
 };
 
 export default Modal;
