@@ -15,9 +15,12 @@ class App extends React.Component {
         const hide_modal = !this.state.hide_modal;
         this.setState({ hide_modal });
     }
-    add_entry(input = { "word": "", "language": "", "terms": "[{'description':'['language':'''description':'']','pos':''}]", "references": "[{}]" })
+    add_entry(params = { "word": "", "language": "", "terms": "[{'description':'['language':'''description':'']','pos':''}]", "references": "[{}]" })
     {
-        const result = { word: input.word, language: input.language, terms: JSON.parse(input.terms), references: JSON.parse(input.references) };
+        const { word , language } = params;
+        const terms = JSON.parse(params.terms);
+        const references = JSON.parse(params.references);
+        const result = { word, language, terms, references: references };
         const new_entries = [...this.state.entries];
         new_entries.push(result);
         this.setState({ entries: new_entries });
