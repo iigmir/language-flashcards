@@ -68,16 +68,25 @@ class Modal extends React.Component {
         // const form_data = new FormData(event.target);
         console.log(params);
     }
+    delete_item(event, state_name, id)
+    {
+        const list = [...this.state[state_name]];
+        list.splice(id, 1);
+        this.setState({ [state_name]: list });
+    }
     render()
     {
         if( this.props.hidden )
         {
             return (<div />);
         }
-        const list_comp = (list) => list.length > 0 ? (
+        const list_comp = (list, state_name) => list.length > 0 ? (
             <div className="is-row">
                 <div className="is-col">
-                    <ul>{ list.map( (item, id) => (<li key={id}>{ JSON.stringify(item) }</li>) ) }</ul>
+                    <ul>{ list.map( (item, id) => (<li key={id}>
+                        <span onClick={ (event) => this.delete_item(event, state_name, id) } className="delete">❎</span>
+                        { JSON.stringify(item) }
+                    </li>) ) }</ul>
                 </div>
             </div>) : (
             <div className="is-row"></div>
@@ -119,7 +128,7 @@ class Modal extends React.Component {
                                         <button className="button is-secondary" onClick={ e => this.push_array("terms", e) } type="button">Add</button>
                                     </div>
                                 </div>
-                                { list_comp(this.state.terms) }
+                                { list_comp(this.state.terms, "terms") }
                                 <div className="references is-row">
                                     <input id="references" type="hidden" name="references" value={ this.state.references } />
                                     <div className="form-item is-col is-50">
@@ -135,7 +144,7 @@ class Modal extends React.Component {
                                         <button className="button is-secondary" onClick={ e => this.push_array("references", e) } type="button">Add</button>
                                     </div>
                                 </div>
-                                { list_comp(this.state.references) }
+                                { list_comp(this.state.references, "references") }
                                 <div className="form-item is-buttons">
                                     <button type="submit" className="button">Add entry</button>
                                 </div>
