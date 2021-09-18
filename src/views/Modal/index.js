@@ -104,7 +104,7 @@ class Modal extends React.Component {
                     </div>
                 </div>
                 <div className="terms is-row">
-                    <input id="terms" type="hidden" name="terms" value={ this.state.terms } />
+                    <input id="terms" type="hidden" name="terms" value={ JSON.stringify(this.state.terms) } />
                     <div className="form-item is-col is-50">
                         <label htmlFor="term-description">Terms: Description</label>
                         <input id="term-description" type="text" name="term-description" value={ this.state["term-description"] } onChange={ e => this.change_state(e) } />
@@ -124,7 +124,7 @@ class Modal extends React.Component {
                 </div>
                 { list_comp(this.state.terms, "terms") }
                 <div className="references is-row">
-                    <input id="references" type="hidden" name="references" value={ this.state.references } />
+                    <input id="references" type="hidden" name="references" value={ JSON.stringify(this.state.references) } />
                     <div className="form-item is-col is-50">
                         <label htmlFor="reference-href">Reference: URL</label>
                         <input id="reference-href" type="text" name="reference-href" value={ this.state["reference-href"] } onChange={ e => this.change_state(e) } />
