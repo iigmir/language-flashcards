@@ -20,16 +20,7 @@ class App extends React.Component {
         const { word , language } = params;
         const terms_src = JSON.parse(params.terms);
         /**
-         * @see https://stackoverflow.com/a/54203304
-         */
-        // const terms = terms_src.reduce((termX, termY) => {
-        //     const term = (terms[termX.pos] || []);
-        //     term.push(termY);
-        //     terms[termY.pos] = term;
-        //     return terms;
-        // }, {});
-        /**
-         * https://stackoverflow.com/a/54203304
+         * @see: https://stackoverflow.com/a/54203304
          */
         const terms_by_pos = terms_src.reduce((groups, item) => ({ ...groups, [item.pos]: [...(groups[item.pos] || []), item] }), {});
         const terms = Object.entries( terms_by_pos ).map( ([pos, description]) => ({ pos, description }) );
