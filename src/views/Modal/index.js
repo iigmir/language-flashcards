@@ -37,12 +37,27 @@ class Modal extends React.Component {
     }
     push_array(key)
     {
+        // const expected = {
+        //     "pos": "Adjective",
+        //     "description": [
+        //         {
+        //             "language": "en",
+        //             "description": "Of chief or leading importance; prime, principal"
+        //         },
+        //         {
+        //             "language": "zh-Hant",
+        //             "description": "主要"
+        //         }
+        //     ]
+        // };
         // eslint-disable-next-line no-undef
         const items = new Map([
             ["terms", {
-                language: this.state["term-description"],
-                description: this.state["term-language"],
-                pos: this.state.pos,
+                language: this.state["term-language"],
+                description: [{
+                    language: this.state["term-description"],
+                    pos: this.state.pos,
+                }],
             }],
             ["references", {
                 href: this.state["reference-href"],
