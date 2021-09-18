@@ -81,7 +81,6 @@ class Modal extends React.Component {
             data_keys.map( key => [key, event.target.elements[key].value] )
         );
         event.preventDefault();
-        // const form_data = new FormData(event.target);
         this.props.add(params);
     }
     delete_item(event, state_name, id)
