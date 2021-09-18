@@ -11,12 +11,12 @@ class Modal extends React.Component {
         this.state = {
             hide: true,
             word: "",
-            language: "",
-            pos: PosSelections[0],
+            language: Languages[0].value,
+            pos: PosSelections[0].value,
             terms: [],
             references: [],
             "term-description": "",
-            "term-language": "",
+            "term-language": Languages[0].value,
             "reference-href": "",
             "reference-text": "",
         };
@@ -47,7 +47,7 @@ class Modal extends React.Component {
                     language: this.state["term-language"],
                 }],
             },
-            inited_state: { ["term-description"]: "", ["term-language"]: "", pos: "", }
+            inited_state: { ["term-description"]: "", ["term-language"]: Languages[0].value, pos: PosSelections[0].value, }
         };
     }
     get_references()
@@ -109,7 +109,7 @@ class Modal extends React.Component {
             ( <div className="is-row"></div> )
         ;
         const form = (<form onSubmit={ e => this.add_entry(e) }>
-            <div className="is-row">
+            <div className="word is-row">
                 <div className="form-item is-col is-80">
                     <label htmlFor="word">Word</label>
                     <input id="word" type="text" name="word" value={ this.state.word } onChange={ e => this.change_state(e) } />
