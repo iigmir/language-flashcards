@@ -28,7 +28,7 @@ class Definition extends React.Component {
     }
     descriptions()
     {
-        return this.props.item.description.map( ({ description }) => description );
+        return this.props.item.description;
     }
     render()
     {

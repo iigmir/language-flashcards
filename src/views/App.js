@@ -18,12 +18,7 @@ class App extends React.Component {
     add_entry(params = { "word": "", "language": "", "terms": "[{'description':'['language':'''description':'']','pos':''}]", "references": "[{}]" })
     {
         const { word , language } = params;
-        const terms_src = JSON.parse(params.terms);
-        /**
-         * @see: https://stackoverflow.com/a/54203304
-         */
-        const terms_by_pos = terms_src.reduce((groups, item) => ({ ...groups, [item.pos]: [...(groups[item.pos] || []), item] }), {});
-        const terms = Object.entries( terms_by_pos ).map( ([pos, description]) => ({ pos, description }) );
+        const terms = JSON.parse(params.terms);
         const references = JSON.parse(params.references);
         const result = { word, language, terms, references };
         const new_entries = [...this.state.entries];
