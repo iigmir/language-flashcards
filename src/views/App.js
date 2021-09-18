@@ -36,7 +36,6 @@ class App extends React.Component {
         const references = JSON.parse(params.references);
         const result = { word, language, terms, references };
         const new_entries = [...this.state.entries];
-        debugger;
         new_entries.push(result);
         this.setState({ entries: new_entries });
         this.toggle_modal_flag();
