@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./modal.css";
+import PosSelections from "../../assets/part-of-speech.json";
 
 class Modal extends React.Component {
     constructor(props)
@@ -35,43 +36,42 @@ class Modal extends React.Component {
         const name = target.name;
         this.setState({ [name]: value });
     }
-    push_array(key)
+    get_terms()
     {
-        // const expected = {
-        //     "pos": "Adjective",
-        //     "description": [
-        //         {
-        //             "language": "en",
-        //             "description": "Of chief or leading importance; prime, principal"
-        //         },
-        //         {
-        //             "language": "zh-Hant",
-        //             "description": "主要"
-        //         }
-        //     ]
-        // };
-        // eslint-disable-next-line no-undef
-        const items = new Map([
-            ["terms", {
+        return {
+            set_items: {
                 pos: this.state.pos,
                 description: [{
                     description: this.state["term-description"],
                     language: this.state["term-language"],
                 }],
-            }],
-            ["references", {
-                href: this.state["reference-href"],
-                text: this.state["reference-text"],
-            }],
-        ]);
-        // eslint-disable-next-line no-undef
-        const clear_state = new Map([
-            ["terms", { ["term-description"]: "", ["term-language"]: "", pos: "", }],
-            ["references", { ["reference-href"]: "", ["reference-text"]: "" }],
-        ]);
-        const item = items.get(key);
-        this.state[key].push(item);
-        this.setState({ ...clear_state.get(key) });
+            },
+            inited_state: { ["term-description"]: "", ["term-language"]: "", pos: "", }
+        };
+    }
+    get_references()
+    {
+        return {
+            set_items: { href: this.state["reference-href"], text: this.state["reference-text"], },
+            inited_state: { ["reference-href"]: "", ["reference-text"]: "" }
+        };
+    }
+    push_array(key)
+    {
+        let payload = { set_items: {}, inited_state: {} };
+        switch (key)
+        {
+        case "terms":
+            payload = this.get_terms();
+            break;
+        case "references":
+            payload = this.get_references();
+            break;
+        default:
+            break;
+        }
+        this.state[key].push( payload.set_items );
+        this.setState( payload.inited_state );
     }
     add_entry(event)
     {
@@ -130,7 +130,10 @@ class Modal extends React.Component {
                     </div>
                     <div className="form-item is-col is-20">
                         <label htmlFor="pos">Part of speech</label>
-                        <input id="pos" type="text" name="pos" value={ this.state.pos } onChange={ e => this.change_state(e) } />
+                        <select id="pos" name="pos" onChange={ e => this.change_state(e) }>
+                            { PosSelections.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
+                        </select>
+                        {/* <input id="pos" type="text" name="pos" value={ this.state.pos } onChange={ e => this.change_state(e) } /> */}
                     </div>
                     <div className="form-item is-col is-10">
                         <label>&nbsp;</label>
