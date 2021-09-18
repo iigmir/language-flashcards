@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./modal.css";
 import PosSelections from "../../assets/part-of-speech.json";
+import Languages from "../../assets/languages.json";
 
 class Modal extends React.Component {
     constructor(props)
@@ -115,7 +116,9 @@ class Modal extends React.Component {
                     </div>
                     <div className="form-item is-col is-20">
                         <label htmlFor="language">Language</label>
-                        <input id="language" type="text" name="language" value={ this.state.language } onChange={ e => this.change_state(e) } />
+                        <select id="language" name="language" value={ this.state.language } onChange={ e => this.change_state(e) }>
+                            { Languages.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
+                        </select>
                     </div>
                 </div>
                 <div className="terms is-row">
@@ -126,14 +129,15 @@ class Modal extends React.Component {
                     </div>
                     <div className="form-item is-col is-20">
                         <label htmlFor="term-language">Terms: Language</label>
-                        <input id="term-language" type="text" name="term-language" value={ this.state["term-language"] } onChange={ e => this.change_state(e) } />
+                        <select id="term-language" name="term-language" value={ this.state["term-language"] } onChange={ e => this.change_state(e) }>
+                            { Languages.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
+                        </select>
                     </div>
                     <div className="form-item is-col is-20">
                         <label htmlFor="pos">Part of speech</label>
-                        <select id="pos" name="pos" onChange={ e => this.change_state(e) }>
+                        <select id="pos" name="pos" value={ this.state.pos } onChange={ e => this.change_state(e) }>
                             { PosSelections.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
                         </select>
-                        {/* <input id="pos" type="text" name="pos" value={ this.state.pos } onChange={ e => this.change_state(e) } /> */}
                     </div>
                     <div className="form-item is-col is-10">
                         <label>&nbsp;</label>
