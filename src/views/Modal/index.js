@@ -96,6 +96,7 @@ class Modal extends React.Component {
         {
             return (<div />);
         }
+        const disable_condition = this.state.terms.length < 1 || this.state.word.trim() === "";
         const list_comp = (list, state_name) => list.length > 0 ? (
             <div className="is-row">
                 <div className="is-col">
@@ -162,7 +163,7 @@ class Modal extends React.Component {
                 </div>
                 { list_comp(this.state.references, "references") }
                 <div className="form-item is-buttons">
-                    <button type="submit" className="button" disabled={ this.state.terms.length < 1 }>Add entry</button>
+                    <button type="submit" className="button" disabled={ disable_condition }>Add entry</button>
                 </div>
             </form>
         );
