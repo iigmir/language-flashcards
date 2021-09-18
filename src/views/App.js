@@ -18,10 +18,25 @@ class App extends React.Component {
     add_entry(params = { "word": "", "language": "", "terms": "[{'description':'['language':'''description':'']','pos':''}]", "references": "[{}]" })
     {
         const { word , language } = params;
-        const terms = JSON.parse(params.terms);
+        const terms_src = JSON.parse(params.terms);
+        /**
+         * @see https://stackoverflow.com/a/54203304
+         */
+        // const terms = terms_src.reduce((termX, termY) => {
+        //     const term = (terms[termX.pos] || []);
+        //     term.push(termY);
+        //     terms[termY.pos] = term;
+        //     return terms;
+        // }, {});
+        /**
+         * https://stackoverflow.com/a/54203304
+         */
+        const terms_by_pos = terms_src.reduce((groups, item) => ({ ...groups, [item.pos]: [...(groups[item.pos] || []), item] }), {});
+        const terms = Object.entries( terms_by_pos ).map( ([pos, description]) => ({ pos, description }) );
         const references = JSON.parse(params.references);
-        const result = { word, language, terms, references: references };
+        const result = { word, language, terms, references };
         const new_entries = [...this.state.entries];
+        debugger;
         new_entries.push(result);
         this.setState({ entries: new_entries });
         this.toggle_modal_flag();
