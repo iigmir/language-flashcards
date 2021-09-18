@@ -33,11 +33,16 @@ class Card extends React.Component {
     render()
     {
         const { word, references, terms, language } = this.current_entry();
+        const devmode = process.env.NODE_ENV === "development";
         if( this.entries_length() < 1 )
         {
             return (<main className="Card container">
                 <p>No entries - How about adding an new one? 😉</p>
             </main>);
+        }
+        if( devmode )
+        {
+            return (<div className="Card container">{ JSON.stringify(this.props.entries) }</div>);
         }
         return (
             <main className="Card container">
