@@ -43,14 +43,12 @@ class Card extends React.Component {
             <span className="prev entry" onClick={ () => this.change_index( this.state.index - 1 ) }>👈</span>
             <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
         </aside>) : (<aside className="entry-nav"></aside>);
-        return (
-            <main className="Card container">
-                { navigation }
-                <Word language={ language } word={ word } />
-                <Entries terms={ terms } />
-                <References references={ references } word={ word } />
-            </main>
-        );
+        return (<main className="Card container">
+            { navigation }
+            <Word language={ language } word={ word } />
+            <Entries terms={ terms } />
+            <References references={ references } word={ word } />
+        </main>);
     }
 }
 
