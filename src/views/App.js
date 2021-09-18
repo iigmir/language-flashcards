@@ -21,6 +21,7 @@ class App extends React.Component {
         const new_entries = [...this.state.entries];
         new_entries.push(result);
         this.setState({ entries: new_entries });
+        this.toggle_modal_flag();
     }
     render()
     {

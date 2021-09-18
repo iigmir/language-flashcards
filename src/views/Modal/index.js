@@ -53,10 +53,10 @@ class Modal extends React.Component {
         // eslint-disable-next-line no-undef
         const items = new Map([
             ["terms", {
-                language: this.state["term-language"],
+                pos: this.state.pos,
                 description: [{
-                    language: this.state["term-description"],
-                    pos: this.state.pos,
+                    description: this.state["term-description"],
+                    language: this.state["term-language"],
                 }],
             }],
             ["references", {
