@@ -11,7 +11,7 @@ class Modal extends React.Component {
             hide: true,
             word: "",
             language: "",
-            pos: "",
+            pos: PosSelections[0],
             terms: [],
             references: [],
             "term-description": "",
