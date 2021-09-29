@@ -4,12 +4,13 @@ import Entries from "./Entries/index";
 import References from "./References";
 import PropTypes from "prop-types";
 import "./entrynav.css";
+import Modal from "../Modal";
 
 class Card extends React.Component {
     constructor(props)
     {
         super(props);
-        this.state = { index: 0 };
+        this.state = { index: 0, hide_modal: true };
     }
     entries_length()
     {
@@ -34,6 +35,11 @@ class Card extends React.Component {
     {
         console.log(this.state.index);
     }
+    toggle_modal_flag()
+    {
+        const hide_modal = !this.state.hide_modal;
+        this.setState({ hide_modal });
+    }
     render()
     {
         const { word, references, terms, language } = this.current_entry();
@@ -48,14 +54,22 @@ class Card extends React.Component {
             <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
         </aside>) : (<aside className="entry-nav"></aside>);
         const edit = (<div className="button area">
-            <button className="button" onClick={ () => this.edit() }>Edit</button>
+            <button className="button" onClick={ () => this.toggle_modal_flag() }>Edit entry</button>
         </div>);
+        const modal = this.state.hide_modal ? (<div />) : (
+            <Modal
+                toggle={ () => this.toggle_modal_flag() }
+                add={ e => this.edit(e) }
+                editmode={ true }
+                editoverwrote={ this.current_entry() }
+            />
+        );
         return (<main className="Card container">
             { navigation }
             <Word language={ language } word={ word } />
             <Entries terms={ terms } />
             <References references={ references } word={ word } />
-            { edit }
+            { edit } { modal }
         </main>);
     }
 }
