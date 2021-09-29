@@ -96,6 +96,7 @@ class Modal extends React.Component {
             return (<div />);
         }
         const disable_condition = this.state.terms.length < 1 || this.state.word.trim() === "";
+        const submit_text = this.props.editmode ? "Update the entry" : "Add an entry";
         const list_comp = (list, state_name) => list.length > 0 ? (
             <div className="is-row">
                 <div className="is-col">
@@ -176,7 +177,7 @@ class Modal extends React.Component {
         </form>);
         const content = (<div className="modal is-open">
             <span className="close" data-close-modal="true"></span>
-            <div className="modal-header">Add an entry</div>
+            <div className="modal-header">{ submit_text }</div>
             <div className="modal-body">{ form }</div>
             <div className="modal-footer"></div>
         </div>);
