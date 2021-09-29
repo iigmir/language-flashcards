@@ -191,6 +191,8 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
     hidden: PropTypes.bool,
+    editmode: PropTypes.bool,
+    overwrote: PropTypes.object,
     toggle: PropTypes.func,
     add: PropTypes.func,
 };
