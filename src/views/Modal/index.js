@@ -96,7 +96,8 @@ class Modal extends React.Component {
             return (<div />);
         }
         const disable_condition = this.state.terms.length < 1 || this.state.word.trim() === "";
-        const submit_text = this.props.editmode ? "Update the entry" : "Add an entry";
+        const title_text = this.props.editmode ? "Update the entry" : "Add an entry";
+        const submit_text = this.props.editmode ? "Update entry" : "Add entry";
         const list_comp = (list, state_name) => list.length > 0 ? (
             <div className="is-row">
                 <div className="is-col">
@@ -172,12 +173,12 @@ class Modal extends React.Component {
             </div>
             { list_comp(this.state.references, "references") }
             <div className="form-item is-buttons">
-                <button type="submit" className="button" disabled={ disable_condition }>Add entry</button>
+                <button type="submit" className="button" disabled={ disable_condition }>{ submit_text }</button>
             </div>
         </form>);
         const content = (<div className="modal is-open">
             <span className="close" data-close-modal="true"></span>
-            <div className="modal-header">{ submit_text }</div>
+            <div className="modal-header">{ title_text }</div>
             <div className="modal-body">{ form }</div>
             <div className="modal-footer"></div>
         </div>);
