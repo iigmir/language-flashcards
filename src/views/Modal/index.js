@@ -107,10 +107,6 @@ class Modal extends React.Component {
         ;
         const form = (<form onSubmit={ e => this.add_entry(e) }>
             <div className="word is-row">
-                {/* <div className="form-item is-col is-80">
-                    <label htmlFor="word">Word</label>
-                    <input id="word" type="text" name="word" value={ this.state.word } onChange={ e => this.change_state(e) } />
-                </div> */}
                 { WordComponent({ word: this.state.word, changeState: this.change_state }) }
                 <div className="form-item is-col is-20">
                     <label htmlFor="language">Language</label>
