@@ -28,7 +28,9 @@ class App extends React.Component {
     }
     render()
     {
-        const modal = this.state.hide_modal ? (<div />) : (<Modal toggle={ () => this.toggle_modal_flag() }add={ e => this.add_entry(e) } />);
+        const modal = this.state.hide_modal ? (<div />) :
+            (<Modal toggle={ () => this.toggle_modal_flag() } add={ e => this.add_entry(e) } hidden={ this.state.hide_modal } />)
+        ;
         return (
             <div className="App">
                 <Header />
