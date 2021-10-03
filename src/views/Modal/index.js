@@ -8,18 +8,7 @@ class Modal extends React.Component {
     constructor(props)
     {
         super(props);
-        this.state = {
-            hide: true,
-            word: "",
-            language: Languages[0].value,
-            pos: PosSelections[0].value,
-            terms: [],
-            references: [],
-            "term-description": "",
-            "term-language": Languages[0].value,
-            "reference-href": "",
-            "reference-text": "",
-        };
+        this.state = { ...this.props.editoverwrote };
     }
     shall_we_close(e)
     {
@@ -197,6 +186,24 @@ Modal.propTypes = {
     editoverwrote: PropTypes.object,
     toggle: PropTypes.func,
     add: PropTypes.func,
+};
+
+Modal.defaultProps = {
+    editmode: false,
+    editoverwrote: {
+        hide: true,
+        word: "",
+        language: Languages[0].value,
+        pos: PosSelections[0].value,
+        terms: [],
+        references: [],
+        "term-description": "",
+        "term-language": Languages[0].value,
+        "reference-href": "",
+        "reference-text": "",
+    },
+    toggle: () => {},
+    add: () => {},
 };
 
 export default Modal;
