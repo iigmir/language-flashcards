@@ -2,7 +2,8 @@ import React from "react";
 import Card from "./Card";
 import Header from "./Header";
 import Modal from "./Modal";
-// import entries from "../assets/example-entries.json";
+import PosSelections from "../assets/part-of-speech.json";
+import Languages from "../assets/languages.json";
 
 class App extends React.Component {
     constructor(props)
@@ -35,11 +36,11 @@ class App extends React.Component {
                     <button className="button" onClick={ () => this.toggle_modal_flag() }>Add entry</button>
                 </div>
                 <Card entries={ this.state.entries } />
-                <Modal
+                { this.state.hide_modal ? null : <Modal
                     toggle={ () => this.toggle_modal_flag() }
                     add={ e => this.add_entry(e) }
-                    hidden={ this.state.hide_modal }
-                />
+                    editoverwrote={ ({ word: "", terms: [], references: [], language: Languages[0].value, pos: PosSelections[0].value }) }
+                />}
             </div>
         );
     }

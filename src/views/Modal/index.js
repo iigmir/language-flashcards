@@ -87,10 +87,6 @@ class Modal extends React.Component {
     }
     render()
     {
-        if( this.props.hidden )
-        {
-            return (null);
-        }
         const disable_condition = this.state.terms.length < 1 || this.state.word.trim() === "";
         const title_text = this.props.editmode ? "Update the entry" : "Add an entry";
         const submit_text = this.props.editmode ? "Update entry" : "Add entry";
