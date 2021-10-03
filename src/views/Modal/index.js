@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./modal.css";
 import PosSelections from "../../assets/part-of-speech.json";
 import Languages from "../../assets/languages.json";
+import { WordComponent } from "./controlled-components";
 
 class Modal extends React.Component {
     constructor(props)
@@ -106,10 +107,11 @@ class Modal extends React.Component {
         ;
         const form = (<form onSubmit={ e => this.add_entry(e) }>
             <div className="word is-row">
-                <div className="form-item is-col is-80">
+                {/* <div className="form-item is-col is-80">
                     <label htmlFor="word">Word</label>
                     <input id="word" type="text" name="word" value={ this.state.word } onChange={ e => this.change_state(e) } />
-                </div>
+                </div> */}
+                { WordComponent({ word: this.state.word, changeState: this.change_state }) }
                 <div className="form-item is-col is-20">
                     <label htmlFor="language">Language</label>
                     <select id="language" name="language" value={ this.state.language } onChange={ e => this.change_state(e) }>
