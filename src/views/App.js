@@ -28,9 +28,6 @@ class App extends React.Component {
     }
     render()
     {
-        const modal = this.state.hide_modal ? (<div />) :
-            (<Modal toggle={ () => this.toggle_modal_flag() } add={ e => this.add_entry(e) } hidden={ this.state.hide_modal } />)
-        ;
         return (
             <div className="App">
                 <Header />
@@ -38,7 +35,11 @@ class App extends React.Component {
                     <button className="button" onClick={ () => this.toggle_modal_flag() }>Add entry</button>
                 </div>
                 <Card entries={ this.state.entries } />
-                { modal }
+                <Modal
+                    toggle={ () => this.toggle_modal_flag() }
+                    add={ e => this.add_entry(e) }
+                    hidden={ this.state.hide_modal }
+                />
             </div>
         );
     }
