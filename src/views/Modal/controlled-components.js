@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Languages from "../../assets/languages.json";
 
-export function WordComponent(props)
+export function WordComponent(props = { word: "", changeState: () => {} })
 {
     return (<div className="form-item is-col is-80">
         <label htmlFor="word">Word</label>
@@ -14,10 +14,10 @@ WordComponent.propTypes = {
     changeState: PropTypes.func,
 };
 
-export function LanguageComponent(props)
+export function LanguageComponent(props = { stateName: "", stateValue: "", changeState: () => {} })
 {
     return (<div className="form-item is-col is-20">
-        <label htmlFor="language">Language</label>
+        <label htmlFor={ props.stateName }>Language</label>
         <select id={ props.stateName } name={ props.stateName } value={ props.stateValue } onChange={ e => props.changeState(e) }>
             { Languages.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
         </select>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./modal.css";
 import PosSelections from "../../assets/part-of-speech.json";
 import Languages from "../../assets/languages.json";
-import { WordComponent } from "./controlled-components";
+import { WordComponent, LanguageComponent } from "./controlled-components";
 
 class Modal extends React.Component {
     constructor(props)
@@ -107,13 +107,10 @@ class Modal extends React.Component {
         ;
         const form = (<form onSubmit={ e => this.add_entry(e) }>
             <div className="word is-row">
-                { WordComponent({ word: this.state.word, changeState: this.change_state }) }
-                <div className="form-item is-col is-20">
-                    <label htmlFor="language">Language</label>
-                    <select id="language" name="language" value={ this.state.language } onChange={ e => this.change_state(e) }>
-                        { Languages.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
-                    </select>
-                </div>
+                { WordComponent({ word: this.state.word, changeState: this.change_state.bind(this) }) }
+                {   // https://stackoverflow.com/a/42327128
+                    LanguageComponent({ stateName: "language", stateValue: this.state.language, changeState: this.change_state.bind(this) })
+                }
             </div>
             <div className="terms is-row">
                 <input id="terms" type="hidden" name="terms" value={ JSON.stringify(this.state.terms) } />
@@ -121,12 +118,7 @@ class Modal extends React.Component {
                     <label htmlFor="term-description">Terms: Description</label>
                     <input id="term-description" type="text" name="term-description" value={ this.state["term-description"] } onChange={ e => this.change_state(e) } />
                 </div>
-                <div className="form-item is-col is-20">
-                    <label htmlFor="term-language">Terms: Language</label>
-                    <select id="term-language" name="term-language" value={ this.state["term-language"] } onChange={ e => this.change_state(e) }>
-                        { Languages.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
-                    </select>
-                </div>
+                { LanguageComponent({ stateName: "term-language", stateValue: this.state["term-language"], changeState: this.change_state.bind(this) }) }
                 <div className="form-item is-col is-20">
                     <label htmlFor="pos">Part of speech</label>
                     <select id="pos" name="pos" value={ this.state.pos } onChange={ e => this.change_state(e) }>
