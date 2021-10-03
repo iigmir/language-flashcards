@@ -28,3 +28,22 @@ LanguageComponent.propTypes = {
     stateName: PropTypes.string,
     changeState: PropTypes.func,
 };
+
+export function ListComponent(props = { list: [], state_name: "", emit_delete: () => {} })
+{
+    if( props.list.length < 1 ) { return (<div className="is-row"></div>); }
+    // Render the list
+    return (<div className="is-row">
+        <div className="is-col">
+            <ul>{ props.list.map( (item, id) => (<li key={id}>
+                <span onClick={ (event) => props.emit_delete(event, props.state_name, id) } className="delete">❎</span>
+                { JSON.stringify(item) }
+            </li>) ) }</ul>
+        </div>
+    </div>);
+}
+ListComponent.propTypes = {
+    list: PropTypes.array,
+    state_name: PropTypes.string,
+    emit_delete: PropTypes.func,
+};

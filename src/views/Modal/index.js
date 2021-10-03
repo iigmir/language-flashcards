@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./modal.css";
 import PosSelections from "../../assets/part-of-speech.json";
 import Languages from "../../assets/languages.json";
-import { WordComponent, LanguageComponent } from "./controlled-components";
+import { WordComponent, LanguageComponent, ListComponent } from "./controlled-components";
 
 class Modal extends React.Component {
     constructor(props)
@@ -94,17 +94,6 @@ class Modal extends React.Component {
         const disable_condition = this.state.terms.length < 1 || this.state.word.trim() === "";
         const title_text = this.props.editmode ? "Update the entry" : "Add an entry";
         const submit_text = this.props.editmode ? "Update entry" : "Add entry";
-        const list_comp = (list, state_name) => list.length > 0 ? (
-            <div className="is-row">
-                <div className="is-col">
-                    <ul>{ list.map( (item, id) => (<li key={id}>
-                        <span onClick={ (event) => this.delete_item(event, state_name, id) } className="delete">❎</span>
-                        { JSON.stringify(item) }
-                    </li>) ) }</ul>
-                </div>
-            </div>) :
-            ( <div className="is-row"></div> )
-        ;
         const form = (<form onSubmit={ e => this.add_entry(e) }>
             <div className="word is-row">
                 { WordComponent({ word: this.state.word, changeState: this.change_state.bind(this) }) }
@@ -135,7 +124,7 @@ class Modal extends React.Component {
                     >Add</button>
                 </div>
             </div>
-            { list_comp(this.state.terms, "terms") }
+            { ListComponent({ list: this.state.terms, state_name: "terms", emit_delete: this.delete_item.bind(this) }) }
             <div className="references is-row">
                 <input id="references" type="hidden" name="references" value={ JSON.stringify(this.state.references) } />
                 <div className="form-item is-col is-50">
@@ -156,7 +145,7 @@ class Modal extends React.Component {
                     >Add</button>
                 </div>
             </div>
-            { list_comp(this.state.references, "references") }
+            { ListComponent({ list: this.state.references, state_name: "references", emit_delete: this.delete_item.bind(this) }) }
             <div className="form-item is-buttons">
                 <button type="submit" className="button" disabled={ disable_condition }>{ submit_text }</button>
             </div>
