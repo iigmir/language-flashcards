@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./modal.css";
 import PosSelections from "../../assets/part-of-speech.json";
 import Languages from "../../assets/languages.json";
-import { WordComponent, LanguageComponent, ListComponent } from "./controlled-components";
+import { WordComponent, LanguageComponent, ListComponent, PartOfSpeechComponent } from "./controlled-components";
 
 class Modal extends React.Component {
     constructor(props)
@@ -104,12 +104,7 @@ class Modal extends React.Component {
                     <input id="term-description" type="text" name="term-description" value={ this.state["term-description"] } onChange={ e => this.change_state(e) } />
                 </div>
                 { LanguageComponent({ stateName: "term-language", stateValue: this.state["term-language"], changeState: this.change_state.bind(this) }) }
-                <div className="form-item is-col is-20">
-                    <label htmlFor="pos">Part of speech</label>
-                    <select id="pos" name="pos" value={ this.state.pos } onChange={ e => this.change_state(e) }>
-                        { PosSelections.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
-                    </select>
-                </div>
+                { PartOfSpeechComponent({ stateName: "pos", stateValue: this.state.pos, changeState: this.change_state.bind(this) }) }
                 <div className="form-item is-col is-10">
                     <label>&nbsp;</label>
                     <button

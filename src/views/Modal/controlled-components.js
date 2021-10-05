@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Languages from "../../assets/languages.json";
+import PosSelections from "../../assets/part-of-speech.json";
 
 export function WordComponent(props = { word: "", changeState: () => {} })
 {
@@ -46,4 +47,19 @@ ListComponent.propTypes = {
     list: PropTypes.array,
     state_name: PropTypes.string,
     emit_delete: PropTypes.func,
+};
+
+export function PartOfSpeechComponent(props = { stateName: "", stateValue: "", changeState: () => {} })
+{
+    return (<div className="form-item is-col is-20">
+        <label htmlFor={ props.stateName }>Part of speech</label>
+        <select id={ props.stateName } name={ props.stateName } value={ props.stateValue } onChange={ e => props.changeState(e) }>
+            { PosSelections.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
+        </select>
+    </div>);
+}
+PartOfSpeechComponent.propTypes = {
+    stateValue: PropTypes.string,
+    stateName: PropTypes.string,
+    changeState: PropTypes.func,
 };
