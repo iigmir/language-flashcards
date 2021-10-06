@@ -16,9 +16,13 @@ class Card extends React.Component {
     {
         return this.props.entries.length;
     }
+    no_entries()
+    {
+        return this.entries_length() < 1;
+    }
     current_entry()
     {
-        if( this.entries_length() < 1 )
+        if( this.no_entries() )
         {
             return { "word": "", "language": "", "terms": [], "references": [] };
         }
@@ -42,7 +46,7 @@ class Card extends React.Component {
     render()
     {
         const { word, references, terms, language } = this.current_entry();
-        if( this.entries_length() < 1 )
+        if( this.no_entries() )
         {
             return (<main className="Card container">
                 <p className="gap">No entries - How about adding an new one? 😉</p>
@@ -51,11 +55,7 @@ class Card extends React.Component {
                 </div>
             </main>);
         }
-        const navigation = this.entries_length() > 1 ? (<aside className="entry-nav">
-            <span className="prev entry" onClick={ () => this.change_index( this.state.index - 1 ) }>👈</span>
-            <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
-        </aside>) : (<aside className="entry-nav"></aside>);
-        const edit_modal = this.state.edit_entry_modal ? (<div />) : (
+        const edit_modal = this.state.edit_entry_modal ? null : (
             <Modal
                 toggle={ () => this.toggle_edit_entry() }
                 add={ e => this.edit(e) }
@@ -64,7 +64,10 @@ class Card extends React.Component {
             />
         );
         return (<main className="Card container">
-            { navigation }
+            <aside className="entry-nav">
+                <span className="prev entry" onClick={ () => this.change_index( this.state.index - 1 ) }>👈</span>
+                <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
+            </aside>
             <Word language={ language } word={ word } />
             <Entries terms={ terms } />
             <References references={ references } word={ word } />
