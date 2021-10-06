@@ -10,7 +10,7 @@ class Card extends React.Component {
     constructor(props)
     {
         super(props);
-        this.state = { index: 0, hide_modal: true };
+        this.state = { index: 0, edit_entry_modal: true };
     }
     entries_length()
     {
@@ -35,10 +35,9 @@ class Card extends React.Component {
     {
         console.log(this.state.index);
     }
-    toggle_modal_flag()
+    toggle_edit_entry()
     {
-        const hide_modal = !this.state.hide_modal;
-        this.setState({ hide_modal });
+        this.setState({ edit_entry_modal: !this.state.edit_entry_modal });
     }
     render()
     {
@@ -47,15 +46,18 @@ class Card extends React.Component {
         {
             return (<main className="Card container">
                 <p className="gap">No entries - How about adding an new one? 😉</p>
+                <div className="button area">
+                    <button className="button">Import from JSON</button>
+                </div>
             </main>);
         }
         const navigation = this.entries_length() > 1 ? (<aside className="entry-nav">
             <span className="prev entry" onClick={ () => this.change_index( this.state.index - 1 ) }>👈</span>
             <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
         </aside>) : (<aside className="entry-nav"></aside>);
-        const modal = this.state.hide_modal ? (<div />) : (
+        const edit_modal = this.state.edit_entry_modal ? (<div />) : (
             <Modal
-                toggle={ () => this.toggle_modal_flag() }
+                toggle={ () => this.toggle_edit_entry() }
                 add={ e => this.edit(e) }
                 editmode={ true }
                 editoverwrote={ this.current_entry() }
@@ -67,10 +69,10 @@ class Card extends React.Component {
             <Entries terms={ terms } />
             <References references={ references } word={ word } />
             <div className="button area">
-                <button className="button" onClick={ () => this.toggle_modal_flag() }>Edit entry</button>
-                <button className="button is-secondary">Button</button>
+                <button className="button" onClick={ () => this.toggle_edit_entry() }>Edit entry</button>
+                <button className="button is-secondary">Import from JSON</button>
             </div>
-            { modal }
+            { edit_modal }
         </main>);
     }
 }
