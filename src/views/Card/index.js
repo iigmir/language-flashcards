@@ -66,11 +66,10 @@ class Card extends React.Component {
             <Word language={ language } word={ word } />
             <Entries terms={ terms } />
             <References references={ references } word={ word } />
-            <section className="btns">
-                <div className="button area">
-                    <button className="button" onClick={ () => this.toggle_modal_flag() }>Edit entry</button>
-                </div>
-            </section>
+            <div className="button area">
+                <button className="button" onClick={ () => this.toggle_modal_flag() }>Edit entry</button>
+                <button className="button is-secondary">Button</button>
+            </div>
             { modal }
         </main>);
     }
