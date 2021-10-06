@@ -13,8 +13,7 @@ class App extends React.Component {
     }
     toggle_modal_flag()
     {
-        const hide_modal = !this.state.hide_modal;
-        this.setState({ hide_modal });
+        this.setState({ hide_modal: !this.state.hide_modal });
     }
     add_entry(params = { "word": "", "language": "", "terms": "[{'description':'['language':'''description':'']','pos':''}]", "references": "[{}]" })
     {
