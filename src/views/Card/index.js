@@ -53,9 +53,6 @@ class Card extends React.Component {
             <span className="prev entry" onClick={ () => this.change_index( this.state.index - 1 ) }>👈</span>
             <span className="next entry" onClick={ () => this.change_index( this.state.index + 1 ) }>👉</span>
         </aside>) : (<aside className="entry-nav"></aside>);
-        const edit = (<div className="button area">
-            <button className="button" onClick={ () => this.toggle_modal_flag() }>Edit entry</button>
-        </div>);
         const modal = this.state.hide_modal ? (<div />) : (
             <Modal
                 toggle={ () => this.toggle_modal_flag() }
@@ -69,7 +66,12 @@ class Card extends React.Component {
             <Word language={ language } word={ word } />
             <Entries terms={ terms } />
             <References references={ references } word={ word } />
-            { edit } { modal }
+            <section className="btns">
+                <div className="button area">
+                    <button className="button" onClick={ () => this.toggle_modal_flag() }>Edit entry</button>
+                </div>
+            </section>
+            { modal }
         </main>);
     }
 }
