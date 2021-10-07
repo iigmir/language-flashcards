@@ -28,6 +28,12 @@ class App extends React.Component {
     }
     render()
     {
+        const editoverwrote = { word: "", terms: [], references: [], language: Languages[0].value, pos: PosSelections[0].value };
+        const modal = this.state.hide_modal ? null : <Modal
+            toggle={() => this.toggle_modal_flag()}
+            add={e => this.add_entry(e)}
+            editoverwrote={ editoverwrote }
+        />;
         return (
             <div className="App">
                 <Header />
@@ -35,11 +41,7 @@ class App extends React.Component {
                     <button className="button" onClick={ () => this.toggle_modal_flag() }>Add entry</button>
                 </div>
                 <Card entries={ this.state.entries } />
-                { this.state.hide_modal ? null : <Modal
-                    toggle={ () => this.toggle_modal_flag() }
-                    add={ e => this.add_entry(e) }
-                    editoverwrote={ ({ word: "", terms: [], references: [], language: Languages[0].value, pos: PosSelections[0].value }) }
-                />}
+                { modal }
             </div>
         );
     }
