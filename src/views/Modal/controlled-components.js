@@ -15,21 +15,6 @@ WordComponent.propTypes = {
     changeState: PropTypes.func,
 };
 
-export function LanguageComponent(props = { stateName: "", stateValue: "", changeState: () => {} })
-{
-    return (<div className="form-item is-col is-20">
-        <label htmlFor={ props.stateName }>Language</label>
-        <select id={ props.stateName } name={ props.stateName } value={ props.stateValue } onChange={ e => props.changeState(e) }>
-            { Languages.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
-        </select>
-    </div>);
-}
-LanguageComponent.propTypes = {
-    stateValue: PropTypes.string,
-    stateName: PropTypes.string,
-    changeState: PropTypes.func,
-};
-
 export function ListComponent(props = { list: [], state_name: "", emit_delete: () => {} })
 {
     if( props.list.length < 1 ) { return (<div className="is-row"></div>); }
@@ -47,6 +32,23 @@ ListComponent.propTypes = {
     list: PropTypes.array,
     state_name: PropTypes.string,
     emit_delete: PropTypes.func,
+};
+
+// Selection
+
+export function LanguageComponent(props = { stateName: "", stateValue: "", changeState: () => {} })
+{
+    return (<div className="form-item is-col is-20">
+        <label htmlFor={ props.stateName }>Language</label>
+        <select id={ props.stateName } name={ props.stateName } value={ props.stateValue } onChange={ e => props.changeState(e) }>
+            { Languages.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
+        </select>
+    </div>);
+}
+LanguageComponent.propTypes = {
+    stateValue: PropTypes.string,
+    stateName: PropTypes.string,
+    changeState: PropTypes.func,
 };
 
 export function PartOfSpeechComponent(props = { stateName: "", stateValue: "", changeState: () => {} })
