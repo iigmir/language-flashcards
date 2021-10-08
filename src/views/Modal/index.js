@@ -92,10 +92,16 @@ class Modal extends React.Component {
         const submit_text = this.props.editmode ? "Update entry" : "Add entry";
         const form = (<form onSubmit={ e => this.add_entry(e) }>
             <div className="word is-row">
-                { WordComponent({ word: this.state.word, changeState: this.change_state.bind(this) }) }
-                {   // https://stackoverflow.com/a/42327128
-                    LanguageComponent({ stateName: "language", stateValue: this.state.language, changeState: this.change_state.bind(this) })
-                }
+                <span hidden>https://stackoverflow.com/a/42327128</span>
+                <WordComponent
+                    word={ this.state.word }
+                    changeState={ this.change_state.bind(this) }
+                />
+                <LanguageComponent
+                    stateName="language"
+                    stateValue={ this.state.language }
+                    changeState={ this.change_state.bind(this) }
+                />
             </div>
             <div className="terms is-row">
                 <input id="terms" type="hidden" name="terms" value={ JSON.stringify(this.state.terms) } />
