@@ -38,10 +38,14 @@ ListComponent.propTypes = {
 
 export function LanguageComponent(props = { stateName: "", stateValue: "", changeState: () => {} })
 {
+    const options = ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>);
+    const top_langs = ["en", "zh", "ja", "ko"];
+    const TopLanguages = Languages.filter( ({ value }) => top_langs.includes( value ) );
     return (<div className="form-item is-col is-20">
         <label htmlFor={ props.stateName }>Language</label>
         <select id={ props.stateName } name={ props.stateName } value={ props.stateValue } onChange={ e => props.changeState(e) }>
-            { Languages.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
+            <optgroup label="Top selected">{ TopLanguages.map( options ) }</optgroup>
+            <optgroup label="All languages">{ Languages.map( options ) }</optgroup>
         </select>
     </div>);
 }
@@ -53,10 +57,14 @@ LanguageComponent.propTypes = {
 
 export function PartOfSpeechComponent(props = { stateName: "", stateValue: "", changeState: () => {} })
 {
+    const options = ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>);
+    const top_poses = ["adjective", "noun", "verb"];
+    const TopPos = PosSelections.filter( ({ value }) => top_poses.includes( value ) );
     return (<div className="form-item is-col is-20">
         <label htmlFor={ props.stateName }>Part of speech</label>
         <select id={ props.stateName } name={ props.stateName } value={ props.stateValue } onChange={ e => props.changeState(e) }>
-            { PosSelections.map( ({ text, value }) => (<option key={ value } value={ value }>{ text }</option>) ) }
+            <optgroup label="Top part of speeches">{ TopPos.map( options ) }</optgroup>
+            <optgroup label="All part of speeches">{ PosSelections.map( options ) }</optgroup>
         </select>
     </div>);
 }
