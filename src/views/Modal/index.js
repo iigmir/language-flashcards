@@ -93,10 +93,7 @@ class Modal extends React.Component {
         const form = (<form onSubmit={ e => this.add_entry(e) }>
             <div className="word is-row">
                 <span hidden>https://stackoverflow.com/a/42327128</span>
-                <WordComponent
-                    word={ this.state.word }
-                    changeState={ this.change_state.bind(this) }
-                />
+                <WordComponent word={ this.state.word } changeState={ this.change_state.bind(this) } />
                 <LanguageComponent
                     stateName="language"
                     stateValue={ this.state.language }
@@ -121,7 +118,11 @@ class Modal extends React.Component {
                     >Add</button>
                 </div>
             </div>
-            { ListComponent({ list: this.state.terms, state_name: "terms", emit_delete: this.delete_item.bind(this) }) }
+            <ListComponent
+                state_name="terms"
+                list={ this.state.terms }
+                emit_delete={ this.delete_item.bind(this) }
+            />
             <div className="references is-row">
                 <input id="references" type="hidden" name="references" value={ JSON.stringify(this.state.references) } />
                 <div className="form-item is-col is-50">
@@ -142,7 +143,11 @@ class Modal extends React.Component {
                     >Add</button>
                 </div>
             </div>
-            { ListComponent({ list: this.state.references, state_name: "references", emit_delete: this.delete_item.bind(this) }) }
+            <ListComponent
+                state_name="references"
+                list={ this.state.references }
+                emit_delete={ this.delete_item.bind(this) }
+            />
             <div className="form-item is-buttons">
                 <button type="submit" className="button" disabled={ disable_condition }>{ submit_text }</button>
             </div>
